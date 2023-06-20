@@ -8,14 +8,62 @@ this package enables prinitng, card detection and card swipe on android pos
 npm install react-native-nexgo-android-pos
 ```
 
-## Usage
+## Usage for print
 
 ```js
-import { multiply } from 'react-native-nexgo-android-pos';
+import { printReciept } from 'react-native-nexgo-android-pos';
 
 // ...
 
-const result = await multiply(3, 7);
+const result = await printReciept(
+    logo:string,
+    companyName:string,
+    area:string,
+    country:string,
+    email:string,
+    phone:string,
+    orderId:string,
+    status:string,
+    createdAt:string,
+    items:Array<{name:string,price:number,quantity:number}>,
+    currency:string,
+    totalAmount:number,
+    deliveryAmount:number,
+    deliveryType:string);
+
+
+## Usage for card detection
+
+
+import { detectCard } from 'react-native-nexgo-android-pos';
+
+// ...
+try{
+const result = await detectCard(
+    );
+    if(result=="SUCCESS"){
+        //card detected
+    }else{
+        //not detected
+    }
+}catch(e){
+//not detected
+}
+
+
+## Usage for input card
+
+import { inputCard } from 'react-native-nexgo-android-pos';
+
+// ...
+try{
+const result = await inputCard(
+    );
+    
+}catch(e){
+//not detected
+}
+
 ```
 
 ## Contributing

@@ -20,3 +20,54 @@ const NexgoAndroidPos = NativeModules.NexgoAndroidPos
 export function multiply(a: number, b: number): Promise<number> {
   return NexgoAndroidPos.multiply(a, b);
 }
+
+
+type item={
+  price:number,
+  name:string,
+  quantity:number
+}
+
+
+
+
+
+
+export function printReciept(
+  logo:string,companyName:string,area:string,
+  country:string,email:string,
+  phone:string,orderId:string,
+  status:string="SUCCESSFUL",
+  createdAt:string,
+  items:Array<item>,
+  currency:string,
+  totalAmount:number,
+  deliveryAmount:number,
+  deliveryType:string  
+  ): Promise<void> {
+  return NexgoAndroidPos.printReciept(logo,companyName,area,
+    country,email,
+    phone,orderId,
+    status,
+    createdAt,
+    items,
+    currency,
+    totalAmount,
+    deliveryAmount,
+    deliveryType
+    );
+}
+
+export function detectCard():Promise<string>{
+  
+
+return  NexgoAndroidPos.cardReader();
+  
+}
+
+export function inputCard():Promise<string>{
+  
+
+  return  NexgoAndroidPos.inputPinTest();
+    
+  }

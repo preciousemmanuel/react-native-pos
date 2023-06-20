@@ -65,7 +65,11 @@ dependencies {
   // For < 0.71, this will be from the local maven repo
   // For > 0.71, this will be replaced by `com.facebook.react:react-android:$version` by react gradle plugin
   //noinspection GradleDynamicVersion
+  implementation fileTree(dir: "app/libs", include: ["*.jar"])
+
   implementation "com.facebook.react:react-native:+"
+  //Nexgo plugin
+    implementation files('app/libs/nexgo-smartpos-sdk-v3.04.001_20211014.aar')
 }
 
 if (isNewArchitectureEnabled()) {
